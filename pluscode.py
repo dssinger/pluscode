@@ -2,7 +2,9 @@
 """ Convert a Google Plus Code to latitude/longitude """
 import sys
 import googlemaps
-key = 'AIzaSyBelHU_ZzxnfEH23TzHwe1uYjFU1dFYlhA'
+import os.path
+with open(os.path.join(os.path.dirname(__file__),'map.key'),'r') as keyfile:
+    key = keyfile.readline().strip()
 if len(sys.argv) <= 1:
     print(f'{sys.argv[0]}  pluscode', file=sys.stderr)
     sys.exit(1)
